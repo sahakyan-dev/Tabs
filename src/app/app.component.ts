@@ -19,10 +19,14 @@ export class AppComponent {
         this._data.changeHiddenTab(this.allTabsHidden);
     }
     addTab() {
-        this.tabs.push(['Title ' + ++this.tabNumber, 'active']);
-        if (this.tabs.length === 1) {
-            this.tabs[0][1] = 'selected';
+        this.allTabsHidden = true;
+        for (const tab of this.tabs) {
+            if (tab[1] !== 'hidden') {
+                this.allTabsHidden = false;
+                break;
+            }
         }
+        this.allTabsHidden ? this.tabs.push(['Title ' + ++this.tabNumber, 'selected']) : this.tabs.push(['Title ' + ++this.tabNumber, 'active']);
         this.allTabsHidden = false;
         this._data.changeTab(this.tabs);
         this._data.changeTabN(this.tabNumber);
