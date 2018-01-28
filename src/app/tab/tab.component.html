@@ -1,0 +1,7 @@
+<div class="tab">
+  <span *ngFor="let tab of tabs;">
+    <span *ngIf="tab[1] === 'selected'">
+      Content {{tab[0].replace('Title ', '')}}
+    </span>
+  </span>
+</div>

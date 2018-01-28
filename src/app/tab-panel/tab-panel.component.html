@@ -1,0 +1,8 @@
+<div class="tab-panel">
+  <ul class="tab-panel-buttons">
+    <li *ngFor="let tab of tabs; let i = index;" [class.selected]="tab[1] == 'selected'" [class.hidden]="tab[1] == 'hidden'" (click)="changeToTab(i)">{{tab[0]}}<span (click)="removeTab(i)"> X</span></li>
+  </ul>
+
+  <ng-content></ng-content>
+
+</div>
